@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erik’s Lemonade and Mini-swords</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #444;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+            font-family: cursive;
+        }
+        nav {
+            background-color: #555;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+        .hero {
+            background-color: #fff;
+            color: #fff;
+            padding: 10px 10px;
+            text-align: center;
+            /* min-height: 800px; */
+        }
+        .hero h1 {
+            margin: 0;
+            font-size: 3em;
+        }
+        .hero p {
+            font-size: 1.5em;
+            margin: 10px 0;
+        }
+        .hero img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .content {
+            padding: 20px;
+        }
+        .products {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        .product {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 30%;
+        }
+
+        .aboutimg {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 50%;
+        }
+
+        .aboutimg img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .product img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .product h2 {
+            font-size: 1.5em;
+            margin: 10px 0;
+        }
+        .product p {
+            font-size: 1em;
+            margin: 10px 0;
+        }
+        footer {
+            background-color: #444;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        .halfPage {
+            width: 50%;
+            height: auto;
+            border-radius: 8px;
+            /* float: left; */
+        }
+
+        .section{
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+
+<!-- <nav>
+    <a href="#lemonade">Lemonade</a>
+    <a href="#mini-swords">Mini Swords</a>
+    <a href="#about">About Us</a>
+    <a href="#contact">Contact</a>
+</nav> -->
+
+<section class="hero">
+    <img src="img/sign.png" alt="Erik’s Lemonade & Mini-Swords Sign">
+</section>
+<header>
+    <h1>Erik’s Lemonade and Mini-swords</h1>
+    <p>Refreshing, ice-cold lemonade and expertly crafted mini swords.</p>
+</header>
+
+<div class="content">
+    <section id="lemonade" class="products">
+        <div class="product">
+            <img src="img/lemonade.webp" alt="Classic Lemonade">
+            <h2>Classic Lemonade</h2>
+            <p>Perfectly tart and sweet, our classic lemonade is the perfect refreshment on a hot day.</p>
+        </div>
+        <div class="product">
+            <img src="img/strawberryLemonade.webp" alt="Strawberry Lemonade">
+            <h2>Strawberry Lemonade</h2>
+            <p>A fruity twist on the classic, with fresh strawberries blended into our lemonade.</p>
+        </div>
+        <div class="product">
+            <img src="img/mint_lemonade.webp" alt="Mint Lemonade">
+            <h2>Mint Lemonade</h2>
+            <p>A refreshing blend of lemonade and fresh mint leaves for a cool, crisp taste.</p>
+        </div>
+    </section>
+
+    <section id="mini-swords" class="products">
+        <div class="product">
+            <img src="img/hurtLemon.png" alt="Classic Mini Sword">
+            <h2>Classic Mini Sword</h2>
+            <p>Hand-forged with care, our classic mini sword is a perfect gift or collectible.</p>
+        </div>
+        <div class="product">
+            <img src="img/lemonadeCart.webp" alt="Dragon Slayer Mini Sword">
+            <h2>Dragon Slayer Mini Sword</h2>
+            <p>Channel your inner warrior with this intricately designed mini sword.</p>
+        </div>
+        <div class="product">
+            <img src="img/lemonWeilding.png" alt="Ornate Mini Sword">
+            <h2>Ornate Mini Sword</h2>
+            <p>Beautifully decorated with detailed engravings, this mini sword is a true work of art.</p>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>About Us</h2>
+        <p>Erik's Lemonade and Mini-swords started as a simple idea: combine refreshing drinks with a unique shopping experience. Whether you're quenching your thirst or looking for a one-of-a-kind gift, we’ve got you covered!
+        </p>
+
+        <section id="erik" class="products">
+            <div class="aboutimg">
+                <img src="img/erik4.jpg" alt="Erik Showing Product">
+                <img src="img/erik3.jpg" alt="Erik Showing Product">
+            </div>
+            <div class="aboutimg">
+                <img src="img/erik2.jpg" alt="Erik Showing Product">
+            </div>
+        </section>
+    
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Have questions or want to place an order? Reach out to us at <a href="mailto:erik@lemonaswords.com">erik@lemonsword.com</a>.</p>
+    </section>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+</div>
+
+<footer>
+    <p>&copy; 2024 Erik’s Lemonade and Mini-swords. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
