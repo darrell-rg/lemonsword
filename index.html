@@ -1,220 +1,227 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Erik’s Lemonade and Mini-swords</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #444;
-            color: #fff;
-            padding: 10px 0;
-            text-align: center;
-            font-family: cursive;
-        }
-        .hero {
-            background-color: #fff;
-            color: #fff;
-            padding: 10px 10px;
-            text-align: center;
-        }
-        .hero img {
-            width: 100%;
-            height: auto;
-            min-width: 355px; 
-            /* min-width is from iPhone SE, minus padding*/
-        }
-        .content {
-            padding: 20px;
-        }
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        color: #333;
+        margin: 0;
+        padding: 0;
+      }
+      header {
+        background-color: #444;
+        color: #fff;
+        padding: 10px 0;
+        text-align: center;
+        font-family: cursive;
+      }
+      .hero {
+        background-color: #fff;
+        color: #fff;
+        padding: 10px 10px;
+        text-align: center;
+      }
+      .hero img {
+        width: 100%;
+        height: auto;
+        min-width: 355px;
+        /* min-width is from iPhone SE, minus padding*/
+      }
+      .content {
+        padding: 20px;
+      }
+      .products {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 20px;
+      }
+      .product {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        width: 30%;
+      }
+      .aboutimg {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        width: 50%;
+      }
+      .aboutimg img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        min-height: 240px;
+        /* images are 1024x786 max */
+      }
+      .product img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+      }
+      .product h2 {
+        font-size: 1.5em;
+        margin: 10px 0;
+      }
+      .product p {
+        font-size: 1em;
+        margin: 10px 0;
+      }
+      footer {
+        background-color: #444;
+        color: #fff;
+        text-align: center;
+        padding: 10px 0;
+        /* position: fixed; */
+        width: 100%;
+        bottom: 0;
+      }
+      .section {
+        padding: 20px;
+      }
+      /* Mobile-friendly single column layout */
+      @media screen and (max-width: 768px) {
         .products {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 20px;
+          flex-direction: column;
+          align-items: center;
         }
         .product {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            width: 30%;
+          width: 100%;
+          margin-bottom: 20px;
         }
         .aboutimg {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            width: 50%;
+          width: 100%;
         }
-        .aboutimg img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-            min-height: 240px;
-            /* images are 1024x786 max */
-        }
-        .product img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
-        .product h2 {
-            font-size: 1.5em;
-            margin: 10px 0;
-        }
-        .product p {
-            font-size: 1em;
-            margin: 10px 0;
-        }
-        footer {
-            background-color: #444;
-            color: #fff;
-            text-align: center;
-            padding: 10px 0;
-            /* position: fixed; */
-            width: 100%;
-            bottom: 0;
-        }
-        .section{
-            padding: 20px;
-        }
-
-        /* Mobile-friendly single column layout */
-        @media screen and (max-width: 768px) {
-            .products {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .product {
-                width: 100%;
-                margin-bottom: 20px;
-            }
-
-            .aboutimg {
-                width: 100%;
-            }
-        }
+      }
     </style>
-</head>
-<body>
-<section class="hero">
-    <img loading="eager" src="img/sign.webp" alt="Erik’s Lemonade & Mini-Swords Sign" width="1833" height="1106">
-</section>
-<header>
-    <h1>Erik’s Lemonade and Mini-swords</h1>
-    <p>Refreshing, ice-cold lemonade and expertly crafted mini swords.</p>
-</header>
-
-<div class="content">
-    <section id="lemonade" class="products">
-        <div class="product">
-            <img loading="lazy" src="img/erik2.webp" alt="Classic Lemonade">
-            <h2>Classic Lemonade</h2>
-            <p>Perfectly tart and sweet, our classic lemonade is the perfect refreshment on a hot day.</p>
-            <h2>Small: $2</h2>
-            <h2>Large: $4</h2>
-        </div>
-        <div class="product">
-            <img loading="lazy" src="img/strawberryLemonade.webp" alt="Strawberry Lemonade">
-            <h2>Strawberry Lemonade</h2>
-            <p>A fruity twist on the classic, with fresh strawberries blended into our lemonade.</p>
-            <h2>Coming Soon</h2>
-        </div>
-        <div class="product">
-            <img loading="lazy" src="img/mint_lemonade.webp" alt="Mint Lemonade">
-            <h2>Mint Lemonade</h2>
-            <p>A refreshing blend of lemonade and fresh mint leaves for a cool, crisp taste.</p>
-            <h2>Coming Soon</h2>
-        </div>
+  </head>
+  <body>
+    <section class="hero">
+      <img loading="eager" src="img/sign.webp" alt="Erik’s Lemonade & Mini-Swords Sign" width="1833" height="1106" />
     </section>
+    <header>
+      <h1>Erik’s Lemonade and Mini-swords</h1>
+      <p>Refreshing, ice-cold lemonade and expertly hand-forged mini swords.</p>
+    </header>
 
-    <section id="mini-swords" class="products">
+    <div class="content">
+      <section id="lemonade" class="products">
         <div class="product">
-            <img loading="lazy" src="img/classicSwords.webp" alt="Classic Mini Sword">
-            <h2>Classic Mini Sword</h2>
-            <p>Hand-forged with care, our classic mini sword is a perfect gift or collectible.</p>
+          <img loading="lazy" src="img/erik2.webp" alt="Classic Lemonade" />
+          <h2>Classic Lemonade</h2>
+          <p>Perfectly tart and sweet, our classic lemonade is the perfect refreshment on a hot day.</p>
+          <h2>Small: $2</h2>
+          <h2>Large: $4</h2>
         </div>
         <div class="product">
-            <img loading="lazy" src="img/spikeSwords.webp" alt="Dragon Slayer Mini Sword">
-            <h2>Dragon Slayer Mini Sword</h2>
-            <p>Channel your inner warrior with this intricately designed mini sword.</p>
+          <img loading="lazy" src="img/strawberryLemonade.webp" alt="Strawberry Lemonade" />
+          <h2>Strawberry Lemonade</h2>
+          <p>A fruity twist on the classic, with fresh strawberries blended into our lemonade.</p>
+          <h2>Coming Soon</h2>
         </div>
         <div class="product">
-            <img loading="lazy" src="img/rainbowSwords.webp" alt="Ornate Mini Sword">
-            <h2>Ornate Mini Sword</h2>
-            <p>Beautifully decorated with iridescent colors these mini swords are true works of art.</p>
+          <img loading="lazy" src="img/mint_lemonade.webp" alt="Mint Lemonade" />
+          <h2>Mint Lemonade</h2>
+          <p>A refreshing blend of lemonade and fresh mint leaves for a cool, crisp taste.</p>
+          <h2>Coming Soon</h2>
         </div>
-    </section>
+      </section>
 
-    <section id="about">
+      <section id="mini-swords" class="products">
+        <div class="product">
+          <img loading="lazy" src="img/classicSwords.webp" alt="Classic Mini Sword" />
+          <h2>Classic Mini Sword</h2>
+          <p>Hand-forged with care, our classic mini sword is a perfect gift or collectible.</p>
+        </div>
+        <div class="product">
+          <img loading="lazy" src="img/spikeSwords.webp" alt="Dragon Slayer Mini Sword" />
+          <h2>Dragon Slayer Mini Sword</h2>
+          <p>Channel your inner warrior with this intricately designed mini sword.</p>
+        </div>
+        <div class="product">
+          <img loading="lazy" src="img/rainbowSwords.webp" alt="Ornate Mini Sword" />
+          <h2>Ornate Mini Sword</h2>
+          <p>Beautifully decorated with iridescent colors these mini swords are true works of art.</p>
+        </div>
+      </section>
+
+      <section id="about">
         <h2>About Us</h2>
-        <p>Erik's Lemonade and Mini-swords is founded on two simple truths:
-            <ol>
-                <li>In todays world, armed medieval combat can happen at any moment. <a id="footnote-1-ref" href="#footnote-1">[1]</a>. Alas, carrying around a full sized sword all day is impractical.</li>
-                <li>Sword fights are thirsty work.</li>
-            </ol>
-            
-            From these foundations we build a solution:
-            <ol>
-                <li>Mini-Swords!  Our computers now now fit in our pockets, why not our swords? Perfect for fending off minuscule mammals, diminutive dragons, nano-knights, etc. </li>
-                <li>Our Lemonade has been scientifically <a id="footnote-2-ref" href="#footnote-2">[2]</a> proven to vanquish thirst. </li>
-            </ol>
-        </p>
+        <p>Erik's Lemonade and Mini-swords is founded on two simple truths:</p>
+        <ol>
+          <li>
+            In todays world, armed medieval combat can happen at any moment.
+            <a id="footnote-1-ref" href="#footnote-1">[1]</a>. Alas, carrying around a full sized sword all day is
+            impractical.
+          </li>
+          <li>Sword fights are thirsty work.</li>
+        </ol>
 
-        <section id="erik" class="products">
-            <div class="aboutimg">
-                <img loading="lazy" src="img/blacksmith1.webp" alt="Erik With Anvil">
-                <img loading="lazy" src="img/blacksmith2.webp" alt="Erik With Anvil">
-                <img loading="lazy" src="img/blacksmith3.webp" alt="Erik With Grinder">
-                <img loading="lazy" src="img/erikWeld2.webp" alt="Erik Welding Cart">
-                <img loading="lazy" src="img/erikDrill.webp" alt="Erik Improving Sword Rack">
-                
-            </div>
-            <div class="aboutimg">
-                <img loading="lazy" src="img/erikSugar.webp" alt="Adding Sugar">
-                <img loading="lazy" src="img/erikZest.webp" alt="Adding Lemon Zest">
-                <img loading="lazy" src="img/erikWater.webp" alt="Adding Water">
-                <img loading="lazy" src="img/ErikCartPush.webp" alt="Erik Showing Frozen Lemons">
-                <img loading="lazy" src="img/erik4.webp" alt="Erik Pulling First Cart">
-                <img loading="lazy" src="img/erikCartUpgrade.webp" alt="Improved Lemonade Cart">
-                <img loading="lazy" src="img/happyCustomers.webp" alt="Happy Customers">
-        </section>
-    
-    </section>
+        <p>From these foundations we build a solution:</p>
+        <ol>
+          <li>
+            Mini-Swords! Our computers now now fit in our pockets, why not our swords? Perfect for fending off minuscule
+            mammals, diminutive dragons, nano-knights, etc.
+          </li>
+          <li>
+            Our Lemonade has been scientifically
+            <a id="footnote-2-ref" href="#footnote-2">[2]</a> proven to vanquish thirst.
+          </li>
+        </ol>
+      </section>
+      
+      <section id="erik" class="products">
+        <div class="aboutimg">
+          <img loading="lazy" src="img/blacksmith1.webp" alt="Erik With Anvil" />
+          <img loading="lazy" src="img/blacksmith2.webp" alt="Erik With Anvil" />
+          <img loading="lazy" src="img/blacksmith3.webp" alt="Erik With Grinder" />
+          <img loading="lazy" src="img/erikWeld2.webp" alt="Erik Welding Cart" />
+          <img loading="lazy" src="img/erikDrill.webp" alt="Erik Improving Sword Rack" />
+        </div>
+        <div class="aboutimg">
+          <img loading="lazy" src="img/erikSugar.webp" alt="Adding Sugar" />
+          <img loading="lazy" src="img/erikZest.webp" alt="Adding Lemon Zest" />
+          <img loading="lazy" src="img/erikWater.webp" alt="Adding Water" />
+          <img loading="lazy" src="img/ErikCartPush.webp" alt="Erik Showing Frozen Lemons" />
+          <img loading="lazy" src="img/erik4.webp" alt="Erik Pulling First Cart" />
+          <img loading="lazy" src="img/erikCartUpgrade.webp" alt="Improved Lemonade Cart" />
+          <img loading="lazy" src="img/happyCustomers.webp" alt="Happy Customers" />
+        </div>
+      </section>
 
-    <section id="contact">
+      <section id="contact">
         <h2>Contact Us</h2>
-        <p>Would you like us to bring anvils/hammers/etc so the kids (or grownups) can make mini-swords at your next event? And of course a jug of ice cold lemonade. Text 970-239-1024</p>
         <p>
-        Have questions or want to place an order? Reach out to us at EMAIL NOT WORKING YET SORRY <a href="mailto:erik@lemonaswords.com">erik@lemonsword.com</a>.</p>
-    </section>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <p id="footnote-1">
-        1. Also, squirrel attacks are on the rise. <a href="#footnote-1-ref">&#8617;</a> 
-     </p>
-     <p id="footnote-2">
-        2. Pending peer review.<a href="#footnote-2-ref">&#8617;</a>
-     </p>
-</div>
+          Would you like us to bring anvils/hammers/etc so the kids (or grownups) can make mini-swords at your next
+          event? And of course a jug of ice cold lemonade. Text 970-239-1024
+        </p>
+        <p>
+          Have questions or want to place an order? Reach out to us at EMAIL NOT WORKING YET SORRY
+          <a href="mailto:erik@lemonaswords.com">erik@lemonsword.com</a>.
+        </p>
+      </section>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <p id="footnote-1">
+        1. Also, squirrel attacks are on the rise.
+        <a href="#footnote-1-ref">&#8617;</a>
+      </p>
+      <p id="footnote-2">2. Pending peer review.<a href="#footnote-2-ref">&#8617;</a></p>
+    </div>
 
-<footer>
-
-    <p>&copy; 2024 Erik’s Lemonade and Mini-swords. All rights reserved.</p>
-</footer>
-
-</body>
+    <footer>
+      <p>&copy; 2024 Erik’s Lemonade and Mini-swords. All rights reserved.</p>
+    </footer>
+  </body>
 </html>
