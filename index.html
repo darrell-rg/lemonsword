@@ -19,36 +19,18 @@
             text-align: center;
             font-family: cursive;
         }
-        nav {
-            background-color: #555;
-            padding: 10px;
-            text-align: center;
-        }
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
-        }
         .hero {
             background-color: #fff;
             color: #fff;
             padding: 10px 10px;
             text-align: center;
         }
-        .hero h1 {
-            margin: 0;
-            font-size: 3em;
-        }
-        .hero p {
-            font-size: 1.5em;
-            margin: 10px 0;
-        }
         .hero img {
             width: 100%;
             height: auto;
             border-radius: 8px;
-            /* min-height: 720px; */
+            min-width: 375px; 
+            /* min-width is from iPhone SE */
         }
         .content {
             padding: 20px;
@@ -66,7 +48,6 @@
             text-align: center;
             width: 30%;
         }
-
         .aboutimg {
             background-color: #fff;
             padding: 20px;
@@ -75,15 +56,13 @@
             text-align: center;
             width: 50%;
         }
-
         .aboutimg img {
             width: 100%;
             height: auto;
             border-radius: 8px;
-            /* min-height: 240px; */
+            min-height: 240px;
             /* images are 1024x786 max */
         }
-
         .product img {
             width: 100%;
             height: auto;
@@ -106,30 +85,31 @@
             width: 100%;
             bottom: 0;
         }
-        .halfPage {
-            width: 50%;
-            height: auto;
-            border-radius: 8px;
-            /* float: left; */
-        }
-
         .section{
             padding: 20px;
+        }
+
+        /* Mobile-friendly single column layout */
+        @media screen and (max-width: 768px) {
+            .products {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .product {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .aboutimg {
+                width: 100%;
+            }
         }
     </style>
 </head>
 <body>
-
-
-<!-- <nav>
-    <a href="#lemonade">Lemonade</a>
-    <a href="#mini-swords">Mini Swords</a>
-    <a href="#about">About Us</a>
-    <a href="#contact">Contact</a>
-</nav> -->
-
 <section class="hero">
-    <img loading="eager" src="img/sign.webp" alt="Erik’s Lemonade & Mini-Swords Sign">
+    <img loading="eager" src="img/sign.webp" alt="Erik’s Lemonade & Mini-Swords Sign" width="1833" height="1106">
 </section>
 <header>
     <h1>Erik’s Lemonade and Mini-swords</h1>
@@ -142,6 +122,8 @@
             <img loading="lazy" src="img/erik2.webp" alt="Classic Lemonade">
             <h2>Classic Lemonade</h2>
             <p>Perfectly tart and sweet, our classic lemonade is the perfect refreshment on a hot day.</p>
+            <h2>Small: $2</h2>
+            <h2>Large: $4</h2>
         </div>
         <div class="product">
             <img loading="lazy" src="img/strawberryLemonade.webp" alt="Strawberry Lemonade">
@@ -205,8 +187,8 @@
                 <img loading="lazy" src="img/erikWater.webp" alt="Adding Water">
                 <img loading="lazy" src="img/ErikCartPush.webp" alt="Erik Showing Frozen Lemons">
                 <img loading="lazy" src="img/erik4.webp" alt="Erik Pulling First Cart">
-                <img loading="lazy" src="img/happyCustomers.webp" alt="Happy Customers">
                 <img loading="lazy" src="img/erikCartUpgrade.webp" alt="Improved Lemonade Cart">
+                <img loading="lazy" src="img/happyCustomers.webp" alt="Happy Customers">
         </section>
     
     </section>

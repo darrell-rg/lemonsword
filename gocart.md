@@ -86,10 +86,18 @@ Can get waterproof 65-67V 1200W ps from https://www.ebay.com/itm/145045662361?va
 
 
 
+2000W/51A = 39 A max current per controller, 120A total
 
 
+Mount on side of battery
+
+XT90 x2 connectors, for esc/ charge
+    unplug one to charge
+
+Battery voltage/ temp display from water heater
 
 
+On other side mount BMS
 
 
 
