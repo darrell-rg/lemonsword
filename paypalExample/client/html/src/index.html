@@ -11,11 +11,11 @@
     />
   </head>
   <body>
-    Testing Paypal
+    PayPal JS SDK Standard Integration
     <div id="paypal-button-container" class="paypal-button-container"></div>
     <p id="result-message"></p>
 
-    <script src="https://www.paypal.com/sdk/js?client-id=%PAYPAL_CLIENT_ID%&buyer-country=US&currency=USD&components=buttons&enable-funding=venmo"></script>
+    <script src="https://www.paypal.com/sdk/js?client-id=%PAYPAL_CLIENT_ID%&buyer-country=US&currency=USD&components=buttons&disable-funding=paylater,card&vault=false&debug=true"></script>
     <script src="app.js"></script>
   </body>
 </html>

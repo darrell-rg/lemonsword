@@ -120,19 +120,24 @@
     <div class="content">
       <section id="lemonade" class="products">
         <div class="product">
-          <img src="img/erik2.webp" alt="Classic Lemonade" />
-          <h2>Classic Lemonade</h2>
-          <p>Perfectly tart and sweet, our classic lemonade is the perfect refreshment on a hot day.</p>
-          <h2>Small: $2</h2>
-          <h2>Large: $4</h2>
-        </div>
-        <div class="product">
           <img loading="lazy" src="img/party.webp" alt="Strawberry Lemonade" />
           <h2>Birthday Parties</h2>
           <p>Would you like us to bring anvils/hammers/fire so the kids (or grownups) can make mini-swords at your next
             event?   Includes all tools and materials for up to 30 kids. Text 970-239-1024 to schedule a date.</p>
           <h2>Regular: $100</h2>
           <h2>With SnowCones: $150</h2>
+        </div>
+        <div class="product">
+          <h2>Buy Now</h2>
+          <p>
+            <script src="https://www.paypal.com/sdk/js?client-id=BAAcPkZIUloQ_-qOKWvKlYAGD5gSl4zDE1o-DsbyJIXKEc-mcer7wvKV_XhAJXXGGUeRwj_UcEb5bg2JsE&components=hosted-buttons&enable-funding=venmo&currency=USD&disable-funding=paylater,card"></script>
+            <div id="paypal-container-NZ48JH8N877TN"></div>
+            <script>
+              paypal.HostedButtons({
+                hostedButtonId: "NZ48JH8N877TN",
+              }).render("#paypal-container-NZ48JH8N877TN")
+            </script>
+          </p>
         </div>
         <div class="product">
           <img loading="lazy" src="img/earing2.jpg" alt="Sword Earrings" />
@@ -160,6 +165,16 @@
           <h2>Rainbow Mini Sword</h2>
           <p>Beautifully decorated with iridescent colors these mini swords are true works of art.</p>
           <h2>Rainbow: $5</h2>
+        </div>
+      </section>
+
+      <section id="lemonade">
+        <div class="product">
+          <img src="img/erik2.webp" alt="Classic Lemonade" />
+          <h2>Classic Lemonade</h2>
+          <p>Perfectly tart and sweet, our classic lemonade is the perfect refreshment on a hot day.</p>
+          <h2>Small: $2</h2>
+          <h2>Large: $4</h2>
         </div>
       </section>
 
@@ -206,6 +221,7 @@
           <img loading="lazy" src="img/happyCustomers.webp" alt="Happy Customers" />
         </div>
       </section>
+
 
       <section id="contact">
         <h2>Contact Us</h2>
