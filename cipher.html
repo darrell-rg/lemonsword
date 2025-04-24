@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Emoji Encryptor</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    input, textarea { width: 100%; padding: 10px; margin-top: 10px; }
+    #output { font-size: 1.5em; margin-top: 20px; white-space: pre-wrap; }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      table-layout: fixed;
+      text-align: center;
+      font-size: 1.2em;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+  </style>
+  </style>
+</head>
+<body>
+  <h1>Emoji Encryptor</h1>
+  <p>Enter text to encrypt using emojis:</p>
+  <textarea id="textInput" rows="4" placeholder="Type something..."> The quick brown fox jumps over the lazy dog.</textarea>
+
+
+  <h3>Encrypted Text</h3>
+  <div id="output"></div>
+
+
+  <h3>Clue Message:   </h3>
+  <div id="clue"></div>
+
+  
+
+  <h2>Key:</h2>
+  <table>
+    <thead>
+      <tr>
+        <!-- Top row: A-Z headers -->
+        <script>
+        </script><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th><th>G</th><th>H</th><th>I</th><th>J</th><th>K</th><th>L</th><th>M</th><th>N</th><th>O</th><th>P</th><th>Q</th><th>R</th><th>S</th><th>T</th><th>U</th><th>V</th><th>W</th><th>X</th><th>Y</th><th>Z</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td id="A"></td><td id="B"></td><td id="C"></td><td id="D"></td><td id="E"></td><td id="F"></td><td id="G"></td><td id="H"></td><td id="I"></td><td id="J"></td><td id="K"></td><td id="L"></td><td id="M"></td><td id="N"></td><td id="O"></td><td id="P"></td><td id="Q"></td><td id="R"></td><td id="S"></td><td id="T"></td><td id="U"></td><td id="V"></td><td id="W"></td><td id="X"></td><td id="Y"></td><td id="Z"></td>
+      </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+  <script>
+
+const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+    var clueMessage = "Hello Erik, someone who adores you has sent you a secret encrypted message. Encryption is a quirky way of scrambling text so only your trusted friends can decode it. Julius Caesar used a cipher like this over 2000 years ago to share plans with his generals. In this message, each letter has been swapped with a unique emoji. Can you solve the puzzle, crack the emoji-to-letter code, and decrypt what it says? A wizard or a fox might help, but this quest is yours!"
+
+    var emojiList = 
+    "👄🍉😍😎😭💀👽💩⛷️🚴‍♂️🏎️💪🙏✍️👍❤️💣💎👟🐪🐏🐁🐇🐿️🦄🐷🐾🐈🐔🐧🐍🐬🐙🦑🐌🦋🐞🌹🌷🌲☘️🍎🥝🍒🍄🥞🌮🍽️🌍🗻🛴🚦🚚⚓✈️🛏️⌚🌡️🌈☂️☁️💧🎃🎁🏅⚽🏀⚾🎱⛳⛸️🎮🔈🎹🥁💻🕯️💡📕💲✏️✂️🗑️🔒🔨⚔️";
+
+    const splitEmoji = (string) => [...new Intl.Segmenter().segment(string)].map(x => x.segment)
+
+
+    function replaceRandomInstance(letter, replacement, text) {
+        // Get all indices where the target letter appears
+        const indices = [];
+        for (let i = 0; i < text.length; i++) {
+            if (text[i] === letter | text[i].toUpperCase() === letter) {
+            indices.push(i);
+            }
+        }
+
+        // If the letter is not found, return the original text
+        if (indices.length === 0) return text;
+
+        // Pick a random index to replace
+        const randomIndex = indices[Math.floor(Math.random() * indices.length)];
+
+        // Replace the character at the chosen index
+        return text.substring(0, randomIndex) + replacement + text.substring(randomIndex + 1);
+    }
+
+
+    function getUniqueEmojiSet() {
+      if (emojiList.length < 26) {
+        throw new Error("Not enough unique emoji to choose from.");
+      }
+
+      return splitEmoji(emojiList)
+        .sort(() => 0.5 - Math.random())
+        .slice(0, 26);
+    }
+
+
+    function makeMap(){
+      const emojis = getUniqueEmojiSet();
+      const map =  new Map();
+      
+      for (let i = 0; i < alphabet.length; i++) {
+        map.set(alphabet[i], emojis[i]);
+      }
+      console.log(map);
+      return map;
+    }
+
+    var emojiMap = makeMap();
+
+    function encryptClue(text) {
+      var clueMap = new Map();
+
+      var output = text;
+      for (const [key, value] of emojiMap.entries()) {
+        output = replaceRandomInstance(key,value,output);
+      }
+
+      
+    //   var backoff = 4;
+    //   for (let i = 0; i < text.length; i++) {
+    //     var char = text[i];
+
+    //     if (backoff <= 0 & clueMap.has(char.toUpperCase())){
+    //         output += clueMap.get(char.toUpperCase());
+    //         clueMap.delete(char.toUpperCase());
+    //         backoff = 3;
+    //     } 
+    //     else{
+    //         backoff -=1;
+    //         output += char;
+    //     }
+    //   }
+      return output;
+    }
+
+
+    function encryptText(text) {
+    var output = "";
+      for (let i = 0; i < text.length; i++) {
+        var char = text[i];
+        if (emojiMap.has(char.toUpperCase())){
+            output += emojiMap.get(char.toUpperCase());
+        } 
+        else
+            if (char == ' ') {
+                output += "   ";
+            } else {
+                output += char;
+            }
+            
+      }
+      return output;
+    }
+
+    function showKey(emojiMap){
+        console.log("in showkey");
+        for (const [key, value] of emojiMap.entries()) {
+            document.getElementById(key).textContent = value;
+            // console.log(`${key} = ${value}`);
+        }
+    }
+
+    function handleChange(emojiMap){
+      
+      const inputText = document.getElementById("textInput").value;
+      const encrypted = encryptText(inputText);
+      const clue = encryptClue(clueMessage);
+      document.getElementById("output").textContent = encrypted;
+      document.getElementById("clue").textContent = clue;
+      showKey(emojiMap);
+    }
+
+    document.getElementById("textInput").addEventListener("input", function () {
+        handleChange(emojiMap);
+    });
+
+    handleChange(emojiMap);
+  </script>
+</body>
+</html>
