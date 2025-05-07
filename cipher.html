@@ -98,7 +98,6 @@
       display: flex;
       flex-wrap: wrap;
       gap: 1px;
-      /* font-family: sans-serif; */
     }
 
     .space-box {
@@ -136,7 +135,6 @@
       background-color: white;
     }
   </style>
-  </style>
 </head>
 
 <body>
@@ -159,9 +157,6 @@
   <table>
     <thead>
       <tr>
-        <!-- Top row: A-Z headers -->
-        <script>
-        </script>
         <th>A</th>
         <th>B</th>
         <th>C</th>
@@ -267,7 +262,7 @@
     var emojiList =
       "👄🍉😍😎😭💀👽💩⛷️🚴‍♂️🏎️💪🙏✍️👍❤️💣💎👟🐪🐏🐁🐇🐿️🦄🐷🐾🐈🐔🐧🐍🐬🐙🦑🐌🦋🐞🌹🌷🌲☘️🍎🥝🍒🍄🥞🌮🍽️🌍🗻🛴🚦🚚⚓✈️🛏️⌚🌡️🌈☂️☁️💧🎃🎁🏅⚽🏀⚾🎱⛳⛸️🎮🔈🎹🥁💻🕯️💡📕💲✏️✂️🗑️🔒🔨⚔️";
 
-    const splitEmoji = (string) => [...new Intl.Segmenter().segment(string)].map(x => x.segment)
+    const splitEmoji = (string) => [...new Intl.Segmenter().segment(string)].map(x => x.segment);
 
 
     function replaceRandomInstance(letter, replacement, text) {
@@ -321,22 +316,6 @@
       for (const [key, value] of emojiMap.entries()) {
         output = replaceRandomInstance(key, value, output);
       }
-
-
-      //   var backoff = 4;
-      //   for (let i = 0; i < text.length; i++) {
-      //     var char = text[i];
-
-      //     if (backoff <= 0 & clueMap.has(char.toUpperCase())){
-      //         output += clueMap.get(char.toUpperCase());
-      //         clueMap.delete(char.toUpperCase());
-      //         backoff = 3;
-      //     } 
-      //     else{
-      //         backoff -=1;
-      //         output += char;
-      //     }
-      //   }
       return output;
     }
 
@@ -350,14 +329,8 @@
         }
         else
           output += char;
-        if (char == ' ') {
-          // output += "   ";
-          output += ' ';
-        } else {
-
-        }
       }
-      return output;
+      return output.trim();
     }
 
 
@@ -366,7 +339,7 @@
       for (let i = 0; i < text.length; i++) {
         var char = text[i];
         if (char == ' ') {
-          output += ' ';
+          output += "   ";
         } else {
           output += char;
         }
@@ -383,14 +356,14 @@
     }
 
 
-    function addBoxes(targetid) {
+    function addBoxes(text, targetid) {
       const target = document.getElementById(targetid);
-      const text = target.textContent;
       target.textContent = ''; // Clear original text
-
-      for (let char of text) {
+      const textArray = splitEmoji(text);
+      for (let i = 0; i < textArray.length; i++) {
+        var char = textArray[i];
         const box = document.createElement('div');
-        if (char == " ") {
+        if (char == '') {
           box.className = 'space-box';
         }
         else {
@@ -418,9 +391,8 @@
       const clue = encryptClue(clueMessage);
       document.getElementById("clue1").textContent = clue;
       document.getElementById("clue2").textContent = clue;
-      document.getElementById("output1").textContent = encrypted;
-      document.getElementById("output2").textContent = encrypted;
-      addBoxes("output2")
+      document.getElementById("output1").textContent = wideSpace(encrypted);
+      addBoxes(encrypted, "output2")
       showKey(emojiMap);
     }
 
