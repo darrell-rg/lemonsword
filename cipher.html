@@ -18,6 +18,93 @@
       border: 1px solid #ccc;
       padding: 10px;
     }
+
+    .postcard {
+      width: 576px; /* 6 inches */
+      height: 384px; /* 4 inches */
+      background-color: white;
+      border: 1px solid #ccc;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      font-family: sans-serif;
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .left-side {
+      padding-right: 10px;
+      border-right: 1px dashed #999;
+    }
+
+    .right-side {
+      padding-left: 10px;
+      position: relative;
+    }
+
+    .stamp {
+      width: 60px;
+      height: 60px;
+      border: 1px solid #000;
+      position: absolute;
+      top: 0;
+      right: 0;
+      text-align: center;
+      font-size: 12px;
+      padding: 5px;
+      box-sizing: border-box;
+    }
+
+    .address-lines {
+      margin-top: 80px;
+      font-size: 14px;
+    }
+
+    .address-line {
+      height: 24px;
+      border-bottom: 1px solid #ccc;
+      margin-bottom: 4px;
+      width: 100%;
+    }
+
+    .writing-area {
+      height: 100%;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .letter-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1px;
+      /* font-family: sans-serif; */
+    }
+
+    .letter-box {
+      width: 30px;
+      height: 50px;
+      border: 1px solid black;
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+    }
+
+    .top-half, .bottom-half {
+      height: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .top-half {
+      border-bottom: 1px solid black;
+      font-weight: bold;
+    }
+
+    .bottom-half {
+      background-color: white;
+    }
   </style>
   </style>
 </head>
@@ -28,11 +115,11 @@
 
 
   <h3>Encrypted Text</h3>
-  <div id="output"></div>
+  <div id="output1"></div>
 
 
   <h3>Clue Message:   </h3>
-  <div id="clue"></div>
+  <div id="clue1"></div>
 
   
 
@@ -52,7 +139,41 @@
     </tbody>
   </table>
 
+
+  <h2>Front Of Postcard:</h2>
+  <div class="postcard">
+    <div class="left-side">
+      <div class="writing-area">
+        <p>ATTN AGENT Erik</p>
+        <p> INCOMING SECRET MESSAGE ALERT </p>
+        <p> CODE LEVEL 1</p>
+      </div>
+    </div>
+    <div class="right-side">
+      <div class="stamp">STAMP</div>
+      <div class="address-lines">
+        <div class="address-line"></div>
+        <div class="address-line"></div>
+        <div class="address-line"></div>
+        <div class="address-line"></div>
+      </div>
+    </div>
   </div>
+
+
+  <h2>Back Of Postcard:</h2>
+  <div class="postcard">
+    <div class="left-side">      
+      <div class="writing-area">
+      <p id = "clue2"></p>
+    </div>
+
+    </div>
+    <div class="right-side">
+        <div id="output2" class="letter-container"></div>
+    </div>
+  </div>
+
 
   <script>
 
@@ -146,7 +267,8 @@ const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         } 
         else
             if (char == ' ') {
-                output += "   ";
+                // output += "   ";
+                output += " ";
             } else {
                 output += char;
             }
@@ -163,13 +285,39 @@ const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         }
     }
 
+
+    function addBoxes(targetid){
+      const target = document.getElementById(targetid);
+      const text = target.textContent;
+      target.textContent = ''; // Clear original text
+
+      for (let char of text) {
+        const box = document.createElement('div');
+        box.className = 'letter-box';
+
+        const top = document.createElement('div');
+        top.className = 'top-half';
+        top.textContent = char;
+
+        const bottom = document.createElement('div');
+        bottom.className = 'bottom-half';
+
+        box.appendChild(top);
+        box.appendChild(bottom);
+        target.appendChild(box);
+      }
+    }
+
     function handleChange(emojiMap){
       
       const inputText = document.getElementById("textInput").value;
       const encrypted = encryptText(inputText);
       const clue = encryptClue(clueMessage);
-      document.getElementById("output").textContent = encrypted;
-      document.getElementById("clue").textContent = clue;
+      document.getElementById("clue1").textContent = clue;
+      document.getElementById("clue2").textContent = clue;
+      document.getElementById("output1").textContent = encrypted;
+      document.getElementById("output2").textContent = encrypted;
+      addBoxes("output2")
       showKey(emojiMap);
     }
 
